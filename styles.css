@@ -4,18 +4,43 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+form div label {
+    text-align: center;
+}
+
+form div label, input{
+    display: block;
+}
+
 table {
     border-collapse: collapse;
+    margin: 50px auto;
 }
 
 tr th {
     border: solid 1px black;
     margin: 0;
     padding: 2px 5px;
-    
 }
 
 tr td {
     border: 1px solid black;
     border-radius: 3px;
+    text-align: right;
+}
+
+.check {
+    border-color: transparent;
+    border-bottom-style: hidden;
+    border-right-style: hidden;
 }

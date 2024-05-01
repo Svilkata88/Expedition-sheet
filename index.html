@@ -9,15 +9,57 @@
 <body>
 
     <form>
-        
+        <div>
+            <label for="Code">Код</label>
+            <input type="text" id="Code">
+        </div>
+
+        <div>
+            <label for="Qtty">Количество</label>
+            <input type="text" id="Qtty">
+        </div>
+
+        <div>
+            <label for="package">Опаковка</label>
+            <input type="text" id="package">
+        </div>
+
+        <div>
+            <label for="numberOfPallets">Брой палети</label>
+            <input type="text" id="numberOfPallets">
+        </div>
+
+        <div>
+            <label for="palletType">Вид палет</label>
+            <select name="cars" id="palletType">
+                <option>Голям</option>
+                <option>Малък</option>
+            </select>
+        </div>
+
+        <button id="create">
+            Създай
+        </button>
+
+        <button id="clear">
+            Изчисти
+        </button>
+
+        <button id="delete">
+            Изтрий
+        </button>
     </form>
 
     <table>
         <thead>
             <tr>
-                <th><div class="rounded-header">Код</div></th>
-                <th><div class="rounded-header">Количество</div></th>
-                <th><div class="rounded-header">Тегло / 1бр.</div></th>
+                <th><div >Код</div></th>
+                <th><div >Количество</div></th>
+                <th><div >Тегло / 1бр.</div></th>
+                <th><div >Общо тегло</div></th>
+                <th><div >Опаковка</div></th>
+                <th><div >Брой палети</div></th>
+                <th><div >Вид палет</div></th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +67,11 @@
                 <td>123</td>
                 <td>123</td>
                 <td>123</td>
+                <td>123</td>
+                <td>123</td>
+                <td>123</td>
+                <td>123</td>
+                <td class="check"><input type="checkbox" name="select"></td>
             </tr>
         </tbody>
 
