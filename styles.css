@@ -4,8 +4,27 @@ html {
     box-sizing: border-box;
 }
 
-body {
-    
+header {
+    display: flex;
+    padding: 0 30px;
+    border-bottom: 3px solid black;
+}
+
+#nav-bar {
+    display: flex;
+    justify-content: end;
+    flex-grow: 1;
+    align-self: center;
+}
+
+#nav-bar a {
+    margin: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+body main {
+    margin: 30px 20px;
 }
 
 form {
@@ -22,9 +41,32 @@ form div label, input{
     display: block;
 }
 
+form div input:focus  {
+    outline: 1px solid green;
+}
+
 table {
     border-collapse: collapse;
     margin: 50px auto;
+}
+
+thead {
+    background-color: rgba(206, 204, 204, 0.815);
+}
+
+tbody tr td:nth-child(1) {
+    padding: 3px 5px;
+    text-align: start;
+}
+
+tbody tr td {
+    padding: 3px 4px;
+    text-align: end;
+}
+
+tbody tr td:nth-child(7) {
+    padding: 3px 4px;
+    text-align: center;
 }
 
 tr th {
@@ -37,6 +79,15 @@ tr td {
     border: 1px solid black;
     border-radius: 3px;
     text-align: right;
+}
+
+tr:last-child td:nth-child(1){
+    padding: 3px 4px;
+}
+
+#confirm-btn {
+    display: block;
+    margin: 10px auto;
 }
 
 .check {

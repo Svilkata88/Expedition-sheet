@@ -7,75 +7,100 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-
-    <form>
-        <div>
-            <label for="Code">Код</label>
-            <input type="text" id="Code">
+    <header>
+        <div id="Logo">
+            <h2>Expedition Sheet</h2>
         </div>
+        <div id="nav-bar">
+            <a href="#">Склад</a>
+            <a href="#">Експедиции</a>
+            <a href="#">Вход</a>
+        </div>
+    </header>
+
+    <main>
+        <form>
+            <div>
+                <label for="Code">Код</label>
+                <input type="text" id="Code">
+            </div>
+    
+            <div>
+                <label for="Qtty">Количество</label>
+                <input type="text" id="Qtty">
+            </div>
+    
+            <div>
+                <label for="package">Опаковка</label>
+                <input type="text" id="package">
+            </div>
+    
+            <div>
+                <label for="numberOfPallets">Брой палети</label>
+                <input type="text" id="numberOfPallets">
+            </div>
+    
+            <div>
+                <label for="palletType">Вид палет</label>
+                <select name="cars" id="palletType">
+                    <option value="" selected disabled hidden>Избери</option>
+                    <option>Голям</option>
+                    <option>Малък</option>
+                </select>
+            </div>
+    
+            <button id="create">
+                Създай
+            </button>
+    
+            <button id="clear">
+                Изчисти
+            </button>
+    
+            <button id="delete">
+                Изтрий
+            </button>
+        </form>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th id="thCode"><div >Код</div></th>
+                    <th id="thQtty" n=2 ><div >Количество</div></th>
+                    <th><div >Тегло / 1бр.</div></th>
+                    <th id="thTotalWeight" n=4><div >Общо тегло</div></th>
+                    <th id="thPackage" n=5><div >Опаковка</div></th>
+                    <th id="thNumberOfPallets" n=6><div >Брой палети</div></th>
+                    <th><div >Вид палет</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--
+                <tr> 
+                    <td>123</td>
+                    <td>123</td>
+                    <td>123</td>
+                    <td>123</td>
+                    <td>123</td>
+                    <td>123</td>
+                    <td>123</td>
+                    <td class="check"><input type="checkbox" name="select"></td>     
+                </tr>
+                -->
+            </tbody>
+    
+        </table>
 
         <div>
-            <label for="Qtty">Количество</label>
-            <input type="text" id="Qtty">
+            <button  id="confirm-btn">
+                Потвърди
+            </button>
         </div>
+    </main>
 
-        <div>
-            <label for="package">Опаковка</label>
-            <input type="text" id="package">
-        </div>
+    <footer>
 
-        <div>
-            <label for="numberOfPallets">Брой палети</label>
-            <input type="text" id="numberOfPallets">
-        </div>
-
-        <div>
-            <label for="palletType">Вид палет</label>
-            <select name="cars" id="palletType">
-                <option>Голям</option>
-                <option>Малък</option>
-            </select>
-        </div>
-
-        <button id="create">
-            Създай
-        </button>
-
-        <button id="clear">
-            Изчисти
-        </button>
-
-        <button id="delete">
-            Изтрий
-        </button>
-    </form>
-
-    <table>
-        <thead>
-            <tr>
-                <th><div >Код</div></th>
-                <th><div >Количество</div></th>
-                <th><div >Тегло / 1бр.</div></th>
-                <th><div >Общо тегло</div></th>
-                <th><div >Опаковка</div></th>
-                <th><div >Брой палети</div></th>
-                <th><div >Вид палет</div></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>123</td>
-                <td>123</td>
-                <td>123</td>
-                <td>123</td>
-                <td>123</td>
-                <td>123</td>
-                <td>123</td>
-                <td class="check"><input type="checkbox" name="select"></td>
-            </tr>
-        </tbody>
-
-    </table>
+    </footer>
 
     <script src="./app.js"></script>
 </body>
