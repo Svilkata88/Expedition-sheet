@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <header>
+        <div id="Logo">
+            <h2>Expedition Sheet</h2>
+        </div>
+        <div id="nav-bar">
+            <a href="./storage.html">Склад</a>
+            <a href="./index.html">Експедиции</a>
+            <a href="#">Вход</a>
+        </div>
+    </header>
+
+    <main>
+        <form>
+            <div>
+                <label for="storage-code">Нов код</label>
+                <input type="text" name="storage-code" id="storage-code">
+            </div>
+
+            <div>
+                <label for="storage-one-piece-weight">Тегло за 1 брой</label>
+                <input type="text" name="storage-one-piece-weight" id="storage-one-piece-weight">
+            </div>
+
+            <div>
+                <label for="storage-qtty">Количество за палет</label>
+                <input type="text" name="storage-qtty" id="storage-qtty">
+            </div>
+
+            <button id='storage-create-btn'>
+                Създай нов код
+            </button>
+
+            <button id='storage-showall-btn'>
+                Покажи всички
+            </button>
+        </form> 
+
+        <section id="new-product-info">
+
+        </section>
+    </main>
+
+   <script src="./app.js"></script>
+</body>
+
+</html>

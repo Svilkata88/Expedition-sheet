@@ -1,91 +1,105 @@
+//------------------------------------------------------------------------------------------------------------------------------------//
+let productsData = [];
+
+
+//------------------------------------------------------------------------------------------------------------------------------------//
+// JS for index.html
 const createButton = document.getElementById('create');
 const clearButton = document.getElementById('clear');
 const deleteButton = document.getElementById('delete');
 const confirmButton = document.getElementById('confirm-btn');
 
-createButton.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    const codeInput = document.getElementById('Code');
-    const qttyInput = document.getElementById('Qtty'); 
-    const packageInput = document.getElementById('package'); 
-    const numberPackageInput = document.getElementById('numberOfPallets');
-    const palletTypeInput = document.getElementById('palletType');
+if(createButton) {
+    createButton.addEventListener('click', (e) => {
+        e.preventDefault();
     
-    const tBodyElement = document.querySelector('tbody');
-
-    const tdCode = document.createElement('td');
-    tdCode.textContent = codeInput.value;
-
-    const tdQtty = document.createElement('td');
-    tdQtty.textContent = qttyInput.value;
-
-    const tdWeight1Piece = document.createElement('td');
-    tdWeight1Piece.textContent = 1;
-
-    const tdTottalyWeight = document.createElement('td');
-    tdTottalyWeight.textContent = Number(qttyInput.value) * 1
-
-    const tdPackage = document.createElement('td');
-    tdPackage.textContent = packageInput.value;
-
-    const tdNumberPackage = document.createElement('td');
-    tdNumberPackage.textContent = numberPackageInput.value;
-
-    const tdPalletType = document.createElement('td');
-    tdPalletType.textContent = palletTypeInput.value;
-
-    const tdEdit = document.createElement('td')
-    tdEdit.type = 'submit';
-    tdEdit.name = 'редакция';
-    tdEdit.value = 'редакция';
-
-    const tdCheckBox = document.createElement('td')
-    tdCheckBox.className = 'check';
-    const checkBoxInput = document.createElement('input');
-    checkBoxInput.type = 'checkbox';
-    checkBoxInput.name = 'select';
-    tdCheckBox.appendChild(checkBoxInput);
-
-    const newRow = document.createElement('tr');
-    newRow.append(tdCode, tdQtty, tdWeight1Piece, tdTottalyWeight, tdPackage, tdNumberPackage, tdPalletType, tdPalletType, tdCheckBox)
-
-    tBodyElement.appendChild(newRow);
-    createRowTotal();
-    clearInputs();
-
-})
-
-deleteButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const tbodyElement = document.querySelector('tBody');
-    const checkedRows = document.querySelectorAll('tbody tr td.check input');
-    checkedRows.forEach(row => {
-        if (row.checked){
-            const rowElement = row.closest('tr');
-            rowElement.remove();
-        }
+        const codeInput = document.getElementById('Code');
+        const qttyInput = document.getElementById('Qtty'); 
+        const packageInput = document.getElementById('package'); 
+        const numberPackageInput = document.getElementById('numberOfPallets');
+        const palletTypeInput = document.getElementById('palletType');
+        
+        const tBodyElement = document.querySelector('tbody');
+    
+        const tdCode = document.createElement('td');
+        tdCode.textContent = codeInput.value;
+    
+        const tdQtty = document.createElement('td');
+        tdQtty.textContent = qttyInput.value;
+    
+        const tdWeight1Piece = document.createElement('td');
+        tdWeight1Piece.textContent = 1;
+    
+        const tdTottalyWeight = document.createElement('td');
+        tdTottalyWeight.textContent = Number(qttyInput.value) * 1
+    
+        const tdPackage = document.createElement('td');
+        tdPackage.textContent = packageInput.value;
+    
+        const tdNumberPackage = document.createElement('td');
+        tdNumberPackage.textContent = numberPackageInput.value;
+    
+        const tdPalletType = document.createElement('td');
+        tdPalletType.textContent = palletTypeInput.value;
+    
+        const tdEdit = document.createElement('td')
+        tdEdit.type = 'submit';
+        tdEdit.name = 'редакция';
+        tdEdit.value = 'редакция';
+    
+        const tdCheckBox = document.createElement('td')
+        tdCheckBox.className = 'check';
+        const checkBoxInput = document.createElement('input');
+        checkBoxInput.type = 'checkbox';
+        checkBoxInput.name = 'select';
+        tdCheckBox.appendChild(checkBoxInput);
+    
+        const newRow = document.createElement('tr');
+        newRow.append(tdCode, tdQtty, tdWeight1Piece, tdTottalyWeight, tdPackage, tdNumberPackage, tdPalletType, tdPalletType, tdCheckBox)
+    
+        tBodyElement.appendChild(newRow);
+        createRowTotal();
+        clearInputs();
+    
     })
-})
+}
 
-clearButton.addEventListener('click', (e) => {
-    e.preventDefault()
+if(deleteButton) {
+    deleteButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tbodyElement = document.querySelector('tBody');
+        const checkedRows = document.querySelectorAll('tbody tr td.check input');
+        checkedRows.forEach(row => {
+            if (row.checked){
+                const rowElement = row.closest('tr');
+                rowElement.remove();
+            }
+        })
+    })
+}
 
-    const tBodyElement = document.querySelector('tbody');
-    tBodyElement.innerHTML = '';
-})
+if(clearButton) {
+    clearButton.addEventListener('click', (e) => {
+        e.preventDefault()
+    
+        const tBodyElement = document.querySelector('tbody');
+        tBodyElement.innerHTML = '';
+    })
+}
 
-confirmButton.addEventListener('click', () => {
-    const confirmedSheet = {
-        totalQuantity: sumColumnTotal('thQtty'),
-        totalWeight: sumColumnTotal('thTotalWeight'),
-        totalPackage: sumColumnTotal('thPackage'), // ТРАБВА ДА СЕ РЕДАКТИРА!
-        totalNumberOfPallets: sumColumnTotal('thNumberOfPallets'),
-    }
-    const tBodyElement = document.querySelector('tbody');
-    tBodyElement.innerHTML = '';
-    console.log(confirmedSheet);
-})
+if(confirmButton) {
+    confirmButton.addEventListener('click', () => {
+        const confirmedSheet = {
+            totalQuantity: sumColumnTotal('thQtty'),
+            totalWeight: sumColumnTotal('thTotalWeight'),
+            totalPackage: sumColumnTotal('thPackage'), // ТРАБВА ДА СЕ РЕДАКТИРА!
+            totalNumberOfPallets: sumColumnTotal('thNumberOfPallets'),
+        }
+        const tBodyElement = document.querySelector('tbody');
+        tBodyElement.innerHTML = '';
+        console.log(confirmedSheet);
+    })
+}
 
 function clearInputs() {
     const codeInput = document.getElementById('Code');
@@ -186,3 +200,85 @@ function sumColumnTotal(columnidStr) {
     const result = qttyColumnElementsList.reduce((acc, element) => acc + Number(element.textContent) ,0);
     return result;
 }
+
+//------------------------------------------------------------------------------------------------------------------------------------//
+// JS for storage.html
+const newProductBtn = document.getElementById('storage-create-btn');
+if(newProductBtn) {
+    newProductBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const createCodeInput = document.getElementById('storage-code');
+        const createWeightPerOnePiece = document.getElementById('storage-one-piece-weight');
+        const createQttyPerPallet = document.getElementById('storage-qtty');
+
+        let newCode = createCodeInput.value;
+        let newCodeWeight = createWeightPerOnePiece.value;
+        let newCodePalletQtty = createQttyPerPallet.value;
+
+        const newData = {
+            newCode,
+            newCodeWeight,
+            newCodePalletQtty,
+        }
+        productsData.push(newData);
+
+        createdProductShortInfo();
+        // clearing the inputs - ДА СЕ КОРИГИРИА ФУНКЦИЯТА clearInputs за да работи навсякъде
+        createCodeInput.value = '';
+        createWeightPerOnePiece.value = '';
+        createQttyPerPallet.value = '';
+    })   
+}
+
+function createdProductShortInfo () {
+    const createCodeInput = document.getElementById('storage-code');
+    const createWeightPerOnePiece = document.getElementById('storage-one-piece-weight');
+    const createQttyPerPallet = document.getElementById('storage-qtty');
+
+    const infoElement = document.getElementById('new-product-info');
+
+    const newPInfo = document.createElement('p');
+    newPInfo.innerHTML = 
+        `<span>Новият детайл беше създаден!<span/><br><br>
+        <span>Инфо:<span/><br>
+        <span>КОД: ${createCodeInput.value}<span/><br>
+        <span>ТЕГЛО: ${Number(createWeightPerOnePiece.value).toFixed(2)} кг.<span/><br>
+        <span>Количество в опаковка: ${createQttyPerPallet.value} бр.<span/>`;
+    infoElement.appendChild(newPInfo);
+    setTimeout(() => {
+        newPInfo.innerHTML = '';
+    }, 3000);
+
+    validateInputs(createCodeInput, createWeightPerOnePiece, createQttyPerPallet)
+};
+
+function validateInputs(...inputElements) { 
+    // да се коригира и да се направи валидна за всики инпута
+    //(трябва да се вземе ДОМ Елемента където ще появява съобщението динамично според това къде е извикана функцията)
+    const listElements = [...inputElements];
+
+    const listValues = listElements.map(el => {     
+        if(!el.value)  {
+            el.classList.add("invalid");
+
+            const infoElement = document.getElementById('new-product-info');
+            infoElement.innerHTML = '';
+            const newPInfo = document.createElement('p');
+            newPInfo.innerHTML = 'Попълнете всички полета!';
+            newPInfo.style.color = 'red';
+            newPInfo.style.fontWeight = 'bold';
+            newPInfo.style.fontSize = '22px';
+            newPInfo.style.textAlign = 'center';
+            infoElement.appendChild(newPInfo);
+            setTimeout(() => {
+                infoElement.innerHTML = '';
+                newPInfo.style = '';
+                el.classList.remove("invalid");
+            }, 3000);
+        }
+    })
+};
+
+
+
