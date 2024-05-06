@@ -8,6 +8,7 @@ header {
     display: flex;
     padding: 0 30px;
     border-bottom: 3px solid black;
+    background-color: #2C2B2B;
 }
 
 #nav-bar {
@@ -17,10 +18,21 @@ header {
     align-self: center;
 }
 
+#Logo h2 {
+    color: #0F99AC;
+}
+
 #nav-bar a {
     margin: 10px 20px;
     font-size: 18px;
     text-decoration: none;
+    color: #0F99AC;
+    font-weight: bold;
+}
+
+body {
+    background-color: #146A76;
+    margin: 0;
 }
 
 body main {
@@ -30,19 +42,60 @@ body main {
 form {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 2px;
 }
 
 form div label {
     text-align: center;
+    color: white;
 }
 
 form div label, input{
     display: block;
+    border-radius: 6px;
 }
 
 form div input:focus  {
     outline: 1px solid green;
+}
+
+#create, 
+#clear, 
+#delete, 
+#confirm-btn,
+#storage-create-btn,
+#storage-showall-btn {
+    border-radius: 6px;
+    height: 30px;
+    border: 1px #0F99AC solid;
+    cursor: pointer;
+}
+
+#create:hover, 
+#clear:hover, 
+#delete:hover, 
+#confirm-btn:hover
+#storage-create-btn:hover,
+#storage-showall-btn:hover {
+    opacity: 0.8;
+}
+
+#create, #confirm-btn, #storage-create-btn {
+    background-color: lightgreen;
+}
+
+#clear {
+    background-color: salmon
+}
+
+#delete {
+    background-color: salmon;
+    opacity: 0.9;
+}
+
+#storage-showall-btn {
+    background-color:lightblue;
 }
 
 table {
@@ -62,6 +115,7 @@ tbody tr td:nth-child(1) {
 tbody tr td {
     padding: 3px 4px;
     text-align: end;
+    background-color: bisque;
 }
 
 tbody tr td:nth-child(7) {
@@ -88,6 +142,14 @@ tr:last-child td:nth-child(1){
 #confirm-btn {
     display: block;
     margin: 10px auto;
+}
+
+#new-product-info {
+    text-align: center;
+}
+
+.span-h {
+    font-weight: bold;
 }
 
 .check {

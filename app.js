@@ -240,14 +240,14 @@ function createdProductShortInfo () {
 
     const newPInfo = document.createElement('p');
     newPInfo.innerHTML = 
-        `<span>Новият детайл беше създаден!<span/><br><br>
+        `<span class='span-h'>Новият детайл беше създаден!<span/><br><br>
         <span>Инфо:<span/><br>
         <span>КОД: ${createCodeInput.value}<span/><br>
         <span>ТЕГЛО: ${Number(createWeightPerOnePiece.value).toFixed(2)} кг.<span/><br>
         <span>Количество в опаковка: ${createQttyPerPallet.value} бр.<span/>`;
     infoElement.appendChild(newPInfo);
     setTimeout(() => {
-        newPInfo.innerHTML = '';
+        newPInfo.remove();
     }, 3000);
 
     validateInputs(createCodeInput, createWeightPerOnePiece, createQttyPerPallet)
