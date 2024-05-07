@@ -30,6 +30,10 @@ header {
     font-weight: bold;
 }
 
+#nav-bar a:hover {
+    opacity: 0.8;
+}
+
 body {
     background-color: #146A76;
     margin: 0;
@@ -42,7 +46,7 @@ body main {
 form {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     gap: 2px;
 }
 
@@ -118,9 +122,31 @@ tbody tr td {
     background-color: bisque;
 }
 
+tbody tr button {
+    padding: 1px ;
+    background-color: inherit;
+    border-radius: 6px;
+    border: none;
+}
+
+tbody tr button i {
+    color: salmon;
+    transform: translate(20%, 20%)
+}
+
+tbody tr button:hover {
+    opacity: 0.8;
+}
+
 tbody tr td:nth-child(7) {
     padding: 3px 4px;
     text-align: center;
+}
+
+tbody tr td:nth-child(9) {
+    padding: 0px;
+    text-align: center;
+    background-color: inherit;
 }
 
 tr th {
@@ -131,7 +157,6 @@ tr th {
 
 tr td {
     border: 1px solid black;
-    border-radius: 3px;
     text-align: right;
 }
 

@@ -21,31 +21,32 @@ if(createButton) {
         
         const tBodyElement = document.querySelector('tbody');
     
-        const tdCode = document.createElement('td');
+        const tdCode = document.createElement('td'); // col 1
         tdCode.textContent = codeInput.value;
     
-        const tdQtty = document.createElement('td');
+        const tdQtty = document.createElement('td'); // col 2
         tdQtty.textContent = qttyInput.value;
     
-        const tdWeight1Piece = document.createElement('td');
+        const tdWeight1Piece = document.createElement('td'); // col 3
         tdWeight1Piece.textContent = 1;
     
-        const tdTottalyWeight = document.createElement('td');
+        const tdTottalyWeight = document.createElement('td'); // col 4
         tdTottalyWeight.textContent = Number(qttyInput.value) * 1
     
-        const tdPackage = document.createElement('td');
+        const tdPackage = document.createElement('td'); // col 5
         tdPackage.textContent = packageInput.value;
     
-        const tdNumberPackage = document.createElement('td');
+        const tdNumberPackage = document.createElement('td'); // col 6
         tdNumberPackage.textContent = numberPackageInput.value;
     
-        const tdPalletType = document.createElement('td');
+        const tdPalletType = document.createElement('td'); // col 7
         tdPalletType.textContent = palletTypeInput.value;
     
-        const tdEdit = document.createElement('td')
-        tdEdit.type = 'submit';
-        tdEdit.name = 'редакция';
-        tdEdit.value = 'редакция';
+        const tableBtnEdit = document.createElement('button');
+        tableBtnEdit.type = 'button';
+        const tableBtnEditIcon = document.createElement('i');
+        tableBtnEditIcon.className = 'fa-regular fa-pen-to-square';
+        tableBtnEdit.appendChild(tableBtnEditIcon);
     
         const tdCheckBox = document.createElement('td')
         tdCheckBox.className = 'check';
@@ -55,7 +56,7 @@ if(createButton) {
         tdCheckBox.appendChild(checkBoxInput);
     
         const newRow = document.createElement('tr');
-        newRow.append(tdCode, tdQtty, tdWeight1Piece, tdTottalyWeight, tdPackage, tdNumberPackage, tdPalletType, tdPalletType, tdCheckBox)
+        newRow.append(tdCode, tdQtty, tdWeight1Piece, tdTottalyWeight, tdPackage, tdNumberPackage, tdPalletType, tdPalletType, tableBtnEdit, tdCheckBox)
     
         tBodyElement.appendChild(newRow);
         createRowTotal();
